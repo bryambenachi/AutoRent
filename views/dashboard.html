@@ -1,0 +1,151 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel AutoRent</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <script src="/js/dashboard.js" defer></script>
+</head>
+<body>
+
+    <header class="encabezado">
+        <div class="marca">
+            <span class="icono">🚘</span>
+            <div>
+                <h1>AutoRent</h1>
+                <p>GESTIÓN DE ALQUILER DE VEHÍCULOS</p>
+            </div>
+        </div>
+
+        <div class="usuario">
+            <span id="nombreUsuario">Administrador</span>
+            <button id="btnCerrarSesion">Cerrar sesión</button>
+        </div>
+    </header>
+
+    <main class="panel">
+
+        <section class="bienvenida">
+            <h2>Panel principal</h2>
+            <p>Bienvenido al sistema de gestión de vehículos AutoRent.</p>
+        </section>
+
+        <section class="estadisticas">
+            <article class="tarjeta">
+                <span>🚘</span>
+                <h3>Vehículos</h3>
+                <p>Gestión del inventario</p>
+            </article>
+
+            <article class="tarjeta">
+                <span>👥</span>
+                <h3>Clientes</h3>
+                <p>Administración de clientes</p>
+            </article>
+
+            <article class="tarjeta">
+                <span>📋</span>
+                <h3>Reservas</h3>
+                <p>Control de reservas</p>
+            </article>
+
+            <article class="tarjeta">
+                <span>💰</span>
+                <h3>Pagos</h3>
+                <p>Gestión de pagos</p>
+            </article>
+        </section>
+
+        <section class="modulo">
+            <h2>Gestión de vehículos</h2>
+            <p>Administra los automóviles disponibles para alquiler.</p>
+
+            <button type="button" id="btnMostrarFormulario">
+                + Registrar vehículo
+            </button>
+
+            <div id="formularioVehiculo" hidden>
+                <h3>Registrar nuevo vehículo</h3>
+
+                <form id="vehiculoForm">
+
+                    <label for="placa">Placa</label>
+                    <input type="text" id="placa"
+                           placeholder="Ej. ABC123" required>
+
+                    <label for="marca">Marca</label>
+                    <input type="text" id="marca"
+                           placeholder="Ej. Toyota" required>
+
+                    <label for="modelo">Modelo</label>
+                    <input type="text" id="modelo"
+                           placeholder="Ej. Corolla" required>
+
+                    <label for="tipo">Tipo de vehículo</label>
+                    <select id="tipo" required>
+                        <option value="">Seleccionar tipo</option>
+                        <option value="Automóvil">Automóvil</option>
+                        <option value="Camioneta">Camioneta</option>
+                        <option value="Campero">Campero</option>
+                        <option value="Motocicleta">Motocicleta</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+
+                    <label for="caracteristicas">Características</label>
+                    <textarea id="caracteristicas"
+                              placeholder="Descripción del vehículo"
+                              required></textarea>
+
+                    <label for="estado">Estado</label>
+                    <select id="estado" required>
+                        <option value="Disponible">Disponible</option>
+                        <option value="Alquilado">Alquilado</option>
+                        <option value="Mantenimiento">Mantenimiento</option>
+                    </select>
+
+                    <button type="submit">Guardar vehículo</button>
+                    <button type="button" id="btnCancelar">
+                        Cancelar
+                    </button>
+
+                    <p id="mensajeVehiculo"></p>
+                </form>
+            </div>
+        </section>
+
+        <section class="modulo">
+            <h2>Vehículos registrados</h2>
+
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Placa</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Tipo</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaVehiculos">
+                        <tr>
+                            <td colspan="5">
+                                Cargando vehículos...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="pie">
+        © 2026 AutoRent - Sistema de gestión de alquiler de vehículos
+    </footer>
+
+</body>
+</html>

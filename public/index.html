@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoRent | Iniciar sesión</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <main class="contenedor">
+
+        <section class="login">
+
+            <div class="logo">
+                <div class="icono">🚘</div>
+                <h1>AutoRent</h1>
+                <p>ALQUILER DE VEHÍCULOS</p>
+            </div>
+
+            <h2>Bienvenido</h2>
+
+            <p class="descripcion">
+                Ingresa tus datos para acceder al sistema.
+            </p>
+
+            <form id="loginForm">
+
+                <label>Correo electrónico</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="usuario@autorent.com"
+                    required
+                >
+
+                <label>Contraseña</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Ingresa tu contraseña"
+                    required
+                >
+
+                <button type="submit">
+                    Iniciar sesión
+                </button>
+
+                <p id="mensaje"></p>
+
+            </form>
+
+            <footer>
+                © 2026 AutoRent
+            </footer>
+
+        </section>
+
+    </main>
+    <script src="/js/login.js" defer></script>
+</body>
+</html>
