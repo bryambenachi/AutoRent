@@ -10,12 +10,14 @@ const db = require('./src/config/database');
 
 const app = express();
 const vehiculosRoutes = require('./src/vehiculos');
+const clientesRoutes = require('./src/clientes');
+const reservasRoutes = require('./src/reservas');
 const PORT = process.env.PORT || 3000;
 
 app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/api/vehiculos', vehiculosRoutes);
+
 app.use(session({
     secret: process.env.SESSION_SECRET || 'autorent-clave-local-cambiar',
     resave: false,
@@ -28,6 +30,10 @@ app.use(session({
     }
 }));
 
+// Rutas de vehículos después de configurar las sesiones
+app.use('/api/vehiculos', vehiculosRoutes);
+app.use('/api/clientes', clientesRoutes);
+app.use('/api/reservas', reservasRoutes);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Pantalla principal

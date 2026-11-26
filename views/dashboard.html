@@ -26,40 +26,163 @@
         </div>
     </header>
 
+
+<!-- MODULO DE RESERVAS -->
+<section class="modulo" data-modulo-seccion="reservas">
+    <h2>Realizar reserva</h2>
+    <p>Selecciona un vehículo y establece las fechas de reserva.</p>
+
+    <form id="reservaForm">
+        <label for="clienteReserva">Cliente</label>
+<select id="clienteReserva" required>
+    <option value="">Seleccionar cliente</option>
+</select>
+
+        <label for="vehiculoReserva">Vehículo</label>
+        <select id="vehiculoReserva" required>
+            <option value="">Seleccionar vehículo</option>
+        </select>
+
+        <label for="fechaInicio">Fecha de inicio</label>
+        <input type="date" id="fechaInicio" required>
+
+        <label for="fechaFin">Fecha de finalización</label>
+        <input type="date" id="fechaFin" required>
+
+        <button type="submit">Confirmar reserva</button>
+
+        <p id="mensajeReserva"></p>
+    </form>
+</section>
+
+
+<!-- HU-08: MODULO DE GESTION DE CLIENTES -->
+<section class="modulo" data-modulo-seccion="clientes">
+    <h2>Gestión de clientes</h2>
+    <p>Registra y consulta los clientes de AutoRent.</p>
+
+    <h3>Registrar nuevo cliente</h3>
+
+    <form id="clienteForm">
+
+        <label for="nombreCliente">Nombre completo</label>
+        <input
+            type="text"
+            id="nombreCliente"
+            placeholder="Nombre del cliente"
+            required
+        >
+
+        <label for="documentoCliente">Documento de identidad</label>
+        <input
+            type="text"
+            id="documentoCliente"
+            placeholder="Número de documento"
+            required
+        >
+
+        <label for="telefonoCliente">Teléfono</label>
+        <input
+            type="tel"
+            id="telefonoCliente"
+            placeholder="Número de teléfono"
+            required
+        >
+
+        <label for="emailCliente">Correo electrónico</label>
+        <input
+            type="email"
+            id="emailCliente"
+            placeholder="correo@ejemplo.com"
+            required
+        >
+
+        <label for="direccionCliente">Dirección</label>
+        <input
+            type="text"
+            id="direccionCliente"
+            placeholder="Dirección del cliente"
+        >
+
+        <button type="submit">Guardar cliente</button>
+
+        <p id="mensajeCliente"></p>
+    </form>
+
+    <h3>Clientes registrados</h3>
+
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Documento</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Dirección</th>
+                </tr>
+            </thead>
+
+            <tbody id="listaClientes">
+                <tr>
+                    <td colspan="5">Cargando clientes...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
     <main class="panel">
+
+<!-- BOTON VOLVER AL MENU -->
+<div class="volver-menu">
+    <button type="button" id="btnVolverMenu" hidden>
+        ← Volver al menú principal
+    </button>
+</div>
+
 
         <section class="bienvenida">
             <h2>Panel principal</h2>
             <p>Bienvenido al sistema de gestión de vehículos AutoRent.</p>
         </section>
 
-        <section class="estadisticas">
-            <article class="tarjeta">
-                <span>🚘</span>
-                <h3>Vehículos</h3>
-                <p>Gestión del inventario</p>
-            </article>
+        
+<!-- MENU PRINCIPAL DE MODULOS -->
+<section class="estadisticas">
 
-            <article class="tarjeta">
-                <span>👥</span>
-                <h3>Clientes</h3>
-                <p>Administración de clientes</p>
-            </article>
+    <article class="tarjeta modulo-menu" data-modulo="vehiculos">
+        <span>🚘</span>
+        <h3>Vehículos</h3>
+        <p>Registrar y consultar vehículos</p>
+        <button type="button">Ingresar</button>
+    </article>
 
-            <article class="tarjeta">
-                <span>📋</span>
-                <h3>Reservas</h3>
-                <p>Control de reservas</p>
-            </article>
+    <article class="tarjeta modulo-menu" data-modulo="clientes">
+        <span>👥</span>
+        <h3>Clientes</h3>
+        <p>Registrar y consultar clientes</p>
+        <button type="button">Ingresar</button>
+    </article>
 
-            <article class="tarjeta">
-                <span>💰</span>
-                <h3>Pagos</h3>
-                <p>Gestión de pagos</p>
-            </article>
-        </section>
+    <article class="tarjeta modulo-menu" data-modulo="reservas">
+        <span>📅</span>
+        <h3>Reservas</h3>
+        <p>Gestionar reservas de vehículos</p>
+        <button type="button">Ingresar</button>
+    </article>
 
-        <section class="modulo">
+    <article class="tarjeta modulo-menu" data-modulo="pagos">
+        <span>💰</span>
+        <h3>Pagos</h3>
+        <p>Gestionar pagos</p>
+        <button type="button">Ingresar</button>
+    </article>
+
+</section>
+
+
+        <section class="modulo" data-modulo-seccion="vehiculos">
             <h2>Gestión de vehículos</h2>
             <p>Administra los automóviles disponibles para alquiler.</p>
 
@@ -116,30 +239,56 @@
             </div>
         </section>
 
-        <section class="modulo">
-            <h2>Vehículos registrados</h2>
+        
+<section class="modulo" data-modulo-seccion="vehiculos">
+    <h2>Consultar disponibilidad de vehículos</h2>
+    <p>Consulta los vehículos registrados y verifica cuáles están disponibles para alquilar.</p>
 
-            <div class="tabla-contenedor">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Placa</th>
-                            <th>Marca</th>
-                            <th>Modelo</th>
-                            <th>Tipo</th>
-                            <th>Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody id="listaVehiculos">
-                        <tr>
-                            <td colspan="5">
-                                Cargando vehículos...
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+    <div class="filtros-vehiculos">
+
+        <input
+            type="text"
+            id="buscarVehiculo"
+            placeholder="Buscar por placa, marca, modelo o características..."
+        >
+
+        <select id="filtroEstado">
+            <option value="Todos">Todos los vehículos</option>
+            <option value="Disponible">Disponibles</option>
+            <option value="Alquilado">Ocupados</option>
+            <option value="Mantenimiento">En mantenimiento</option>
+        </select>
+
+        <button type="button" id="btnActualizarVehiculos">
+            Actualizar lista
+        </button>
+
+    </div>
+
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th>Placa</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Tipo</th>
+                    <th>Características</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+
+            <tbody id="listaVehiculos">
+                <tr>
+                    <td colspan="6">Cargando vehículos...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p id="mensajeConsulta"></p>
+</section>
+
 
     </main>
 
@@ -148,4 +297,6 @@
     </footer>
 
 </body>
+
 </html>
+
